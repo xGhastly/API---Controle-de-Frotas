@@ -1,11 +1,12 @@
 import { ICreateDriverService } from "../../Interfaces/Drivers/ICreateDriverService"
+import { IValidateCPF } from "../../Interfaces/Utils/IValidateCPF"
 import prismaClient from "../../prisma"
 
 class CreateDriverService implements ICreateDriverService {
     constructor(private readonly checkCPF: IValidateCPF) { }
 
     async addDriver(name: string, cpf: string, cnh: string) {
-        const validatedCPF = await this.checkCPF.checkCPF(cpf)
+        const validatedCPF = await this.checkCPF.checkCPF(cpf);
         const createdDriver = await prismaClient.driver.create({
             data: {
                 name: name,
@@ -13,8 +14,9 @@ class CreateDriverService implements ICreateDriverService {
                 cnh: cnh,
             }
         })
-        return createdDriver
+        return createdDriver;
+
     }
 }
 
-export { CreateDriverService }
+export { CreateDriverService };

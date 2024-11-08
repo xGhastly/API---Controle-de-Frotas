@@ -4,4 +4,4 @@ interface IDriverProps {
     cpf: string,
     cnh: string,
 }
-export { IDriverProps }
+export { IDriverProps };

@@ -1,3 +1,4 @@
+import { IValidateCPF } from "../Interfaces/Utils/IValidateCPF";
 import prismaClient from "../prisma";
 
 class ValidateCPF implements IValidateCPF {
@@ -8,14 +9,14 @@ class ValidateCPF implements IValidateCPF {
             where: {
                 cpf: cpfToCheck
             }
-        })
+        });
 
         if (existingCPF) {
-            throw new Error('CPF do motorista já cadastrado.')
+            throw new Error('CPF do motorista já cadastrado.');
         }
 
         if (cpfToCheck.length !== 11 || /^(\d)\1{10}$/.test(cpfToCheck)) {
-            throw new Error('CPF Inválido: O CPF necessita ter 11 caracteres.')
+            throw new Error('CPF Inválido: O CPF necessita ter 11 caracteres.');
         }
 
         let soma = 0;
@@ -27,7 +28,7 @@ class ValidateCPF implements IValidateCPF {
             resto = 0;
         }
         if (resto !== parseInt(cpfToCheck.charAt(9))) {
-            throw new Error('CPF Invalido.')
+            throw new Error('CPF Invalido.');
         }
 
         soma = 0;
@@ -39,11 +40,11 @@ class ValidateCPF implements IValidateCPF {
             resto = 0;
         }
         if (resto !== parseInt(cpfToCheck.charAt(10))) {
-            throw new Error('CPF Invalido.')
+            throw new Error('CPF Invalido.');
         }
-        return cpfToCheck
+        return cpfToCheck;
     }
 }
 
-export { ValidateCPF }
+export { ValidateCPF };
 

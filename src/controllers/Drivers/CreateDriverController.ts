@@ -14,7 +14,7 @@ class CreateDriverController {
         try {
             const createdDriver = await this.driverService.addDriver(name, cpf, cnh);
 
-            res.status(201).send(createdDriver)
+            res.status(201).send(createdDriver);
         } catch (error) {
             next(error);
         }
@@ -23,4 +23,4 @@ class CreateDriverController {
     }
 }
 
-export { CreateDriverController }
+export { CreateDriverController };

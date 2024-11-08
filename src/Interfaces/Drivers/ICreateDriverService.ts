@@ -4,4 +4,4 @@ interface ICreateDriverService {
     addDriver(name: string, cpf: string, cnh: string): Promise<IDriverProps>
 }
 
-export { ICreateDriverService }
+export { ICreateDriverService };
