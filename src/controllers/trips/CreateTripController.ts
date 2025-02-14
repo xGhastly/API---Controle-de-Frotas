@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 
 class CreateTripController {
-    constructor(private readonly tripService: CreateTripService) { }
+    constructor(private readonly tripService) { }
     async handle(req: Request, res: Response, next: NextFunction) {
         try {
             const { origin, destination, passengers, date, distanceKm, driverId, vehicleId } = req.body as {
@@ -19,6 +19,6 @@ class CreateTripController {
         } catch (error) {
             next(error)
         }
-
+        console.log('Estamos por aqui')
     }
 }
