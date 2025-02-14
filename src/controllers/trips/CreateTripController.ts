@@ -19,8 +19,5 @@ class CreateTripController {
         } catch (error) {
             next(error)
         }
-        console.log('Estamos por aqui')
-
-        console.log('agora estamos aqui')
     }
 }
